@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><fieldset>
+  <legend>
+      <h3>Information</h3>
+      <div>
+          <div th:if="${success}">
+              <span th:text="${success}"></span>
+          </div>
+      </div>
+      <div th:object="${email}">
+            <span>Language:</span>
+          <span th:text="${email.getLanguage()}"></span><br/>
+          <span>Page size email per page:</span>
+          <span th:text="${email.getSize()}"></span><br/>
+          <span>Spam filter: </span>
+          <span th:text="${email.isSpam()}"></span><br/>
+          <span>Signature:</span>
+          <span th:text="${email.getSignature()}"></span><br/>
+          <span><a th:href="@{setting/edit}">Edit</a></span>
+
+
+      </div>
+  </legend>
+</fieldset>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Setting</h3>
+<p>
+    <a th:href="@{/setting}">
+        Quay Lai
+    </a>
+</p>
+<div>
+    <form  th:action="@{/setting/update}" th:object="${email}"
+          method="POST">
+        <div>
+            <span>Language: </span>
+           <span > <label>
+<select th:field="*{language}">
+     <option th:value="English" th:text="English"></option>
+     <option th:value="Vietnamese" th:text="Vietnamese"></option>
+     <option th:value="Japanese" th:text="Japanese"></option>
+     <option th:value="Chinese" th:text="Chinese"></option>
+ </select>
+</label>
+           </span>
+        </div>
+        <div>
+            <span>Page Size:</span>
+            <span><label>
+<select th:field="*{size}">
+    <option th:value="5" th:text="5"></option>
+    <option th:value="10" th:text="10"></option>
+    <option th:value="15" th:text="15"></option>
+    <option th:value="20" th:text="20"></option>
+    <option th:value="25" th:text="25"></option>
+</select>
+</label>
+            </span>
+        </div>
+        <div>
+            <span>Spams filter:</span>
+           <span><label>
+<input type="checkbox" th:field="*{spam}">
+</label>Enable spams filter</span>
+        </div>
+        <div>
+            <span>Signature:</span>
+            <span><label>
+<textarea th:field="*{signature}" style="height: 50px; width: 200px"></textarea>
+</label></span>
+        </div>
+        <div>
+            <span>
+            <input type="submit" value="Update">
+            </span>
+        </div>
+    </form>
+</div>
+</body>
+</html>
